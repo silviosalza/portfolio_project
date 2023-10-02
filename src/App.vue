@@ -4,6 +4,7 @@
 </script>
 
 <template>
+  <div class="bg"></div>
   <div class="app m-5">
     <div class="title">
       <h1>Silvio Filippo Salza</h1>
@@ -24,6 +25,7 @@
     </div>
     <router-view></router-view>
   </div>
+
 </template>
 
 <style lang="scss">
@@ -45,6 +47,6 @@
   height: calc(100vh - 6rem);
   overflow: hidden;
   border: rgb(81, 81, 81) 1px solid;
-  background-color: #E6E6E6;
+  background-color: transparent
 }
 </style>
