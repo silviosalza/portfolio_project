@@ -4,8 +4,8 @@
 </script>
 
 <template>
-  <div class="bg"></div>
-  <div class="app m-5">
+<div class="bg"></div>  
+<div class="app m-5">
     <div class="title">
       <h1>Silvio Filippo Salza</h1>
       <span>Full Stack Junior Web Developer & Not a Proper Designer</span>
@@ -25,7 +25,6 @@
     </div>
     <router-view></router-view>
   </div>
-
 </template>
 
 <style lang="scss">
