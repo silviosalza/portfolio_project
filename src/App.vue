@@ -45,13 +45,13 @@ export default {
     <div class="nav py-5">
       <ul>
         <li>
-          <router-link to="/">Homepage</router-link>
+          <router-link style="text-decoration: none; color: inherit;" to="/">Homepage</router-link>
         </li>
         <li>
-          <router-link to="/projects">Projects</router-link>
+          <router-link style="text-decoration: none; color: inherit;" to="/projects">Projects</router-link>
         </li>
         <li>
-          <router-link to="/info">Info</router-link>
+          <router-link style="text-decoration: none; color: inherit;" to="/info">Info</router-link>
         </li>
       </ul>
     </div>
@@ -79,5 +79,12 @@ export default {
   overflow: hidden;
   border: rgb(81, 81, 81) 1px solid;
   background-color: transparent
+}
+  li{
+    list-style: none;
+    padding-bottom: 1rem;
+    &:hover{
+      color: rgb(195, 172, 0);
+    }
 }
 </style>
