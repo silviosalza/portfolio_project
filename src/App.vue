@@ -76,9 +76,6 @@ export default {
     font-size: 2rem;
     font-weight: 100;
   }
-  span{
-    font-weight: 500;
-  }
 }
 .app {
   padding: 3rem 0 0 3rem;
