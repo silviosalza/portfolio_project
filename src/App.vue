@@ -1,4 +1,35 @@
 <script>
+export default {
+  data(){
+    return{
+      darkMode: false
+    }
+  },
+  methods: {
+    dark() {
+      document.querySelector('body').classList.add('dark-mode')
+            this.darkMode = true
+            this.$emit('dark')
+        },
+        light() {
+            document.querySelector('body').classList.remove('dark-mode')
+            this.darkMode = false
+            this.$emit('light')
+        },
+        modeToggle() {
+            if(this.darkMode || document.querySelector('body').classList.contains('dark-mode')) {
+                this.light()
+            } else {
+                this.dark()
+            }
+        },
+    },
+    computed: {
+        darkDark() {
+            return this.darkMode && 'darkmode-toggled'
+        }
+    }
+}
 
 
 </script>
@@ -6,6 +37,7 @@
 <template>
 <div class="bg"></div>  
 <div class="app m-5">
+  <button @click="modeToggle">Toggle Dark Mode</button>
     <div class="title">
       <h1>Silvio Filippo Salza</h1>
       <span>Full Stack Junior Web Developer & Not a Proper Designer</span>
@@ -16,7 +48,7 @@
           <router-link to="/">Homepage</router-link>
         </li>
         <li>
-          <router-link to="/projects">Posts</router-link>
+          <router-link to="/projects">Projects</router-link>
         </li>
         <li>
           <router-link to="/info">Info</router-link>

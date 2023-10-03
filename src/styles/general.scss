@@ -4,9 +4,15 @@
 
 body{
     font-family: $main_font;
-    background-color: #E6E6E6;
+    color: rgb(57, 57, 57);
+    background-color: #dcdcdc;
     margin: 0;
     overflow-x: hidden;
+
+  &.dark-mode{
+    background-color: rgb(48, 48, 48);
+    color: #dcdcdc;
+  }
 }
 
 // BACKGROUND ANIMATION
