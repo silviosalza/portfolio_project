@@ -37,7 +37,15 @@ export default {
 <template>
 <div class="bg"></div>  
 <div class="app m-5">
-  <button @click="modeToggle">Toggle Dark Mode</button>
+  <!-- <button @click="modeToggle">Toggle Dark Mode</button> -->
+  <div class="d-flex justify-content-end mx-3">
+        <div class="mode-toggle" @click="modeToggle" :class="darkDark">
+            <div class="toggle">
+                <div id="dark-mode" type="checkbox"></div>
+            </div>
+        </div>
+    </div>
+
     <div class="title">
       <h1>Silvio Filippo Salza</h1>
       <span>Full Stack Junior Web Developer & Not a Proper Designer</span>
