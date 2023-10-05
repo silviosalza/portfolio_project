@@ -29,7 +29,7 @@
 }
 @media screen and (max-width: 600px) {
     .bio_container {
-    height: 90%;
+    height: 50%;
     overflow-y: scroll;
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
