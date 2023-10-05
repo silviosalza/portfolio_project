@@ -24,11 +24,6 @@ export default {
         this.dark()
       }
     },
-    // pageClicked() {
-    //   let selectPage = document.querySelector('.pageType').innerText;
-    //   this.currentPage = selectPage
-    //   console.log(this.currentPage);
-    // }
     pageClicked(event) {
     let selectPageElement = event.currentTarget.querySelector('.pageType');
     
@@ -90,7 +85,11 @@ export default {
         </li>
       </ul>
     </div>
-    <router-view></router-view>
+    <router-view v-slot="{ Component, route }">
+  <transition :name="route.meta.transition || 'fade'" mode="out-in">
+    <component :is="Component"/>
+  </transition>
+</router-view>
   </div>
 </template>
 
