@@ -4,7 +4,7 @@
 </script>
 
 <template>
-    <div class="bio_container row d-flex justify-content-end align-items-end">
+    <div class="bio_container row d-flex justify-content-sm-end align-items-sm-end">
         <div class="col-md-6 col-lg-3 col-xxl-2">
             <div class="d-flex justify-content-center py-3">
                 <img class="bio-img" src="../assets/1690251745175.jpg" alt="">
@@ -28,11 +28,8 @@
   scrollbar-color: transparent transparent;
 }
 @media screen and (max-width: 600px) {
-    .bio_container {
+.bio_container {
 height: calc(100% - 10rem);
-overflow-y: scroll;
-scrollbar-width: thin;
-scrollbar-color: transparent transparent;
 }
 }
 .bio-img{
