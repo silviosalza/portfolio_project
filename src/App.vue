@@ -1,49 +1,73 @@
 <script>
 export default {
-  data(){
-    return{
-      darkMode: false
+  data() {
+    return {
+      darkMode: false,
+      currentPage: ""
     }
   },
   methods: {
     dark() {
       document.querySelector('body').classList.add('dark-mode')
-            this.darkMode = true
-            this.$emit('dark')
-        },
-        light() {
-            document.querySelector('body').classList.remove('dark-mode')
-            this.darkMode = false
-            this.$emit('light')
-        },
-        modeToggle() {
-            if(this.darkMode || document.querySelector('body').classList.contains('dark-mode')) {
-                this.light()
-            } else {
-                this.dark()
-            }
-        },
+      this.darkMode = true
+      this.$emit('dark')
     },
-    computed: {
-        darkDark() {
-            return this.darkMode && 'darkmode-toggled'
-        }
+    light() {
+      document.querySelector('body').classList.remove('dark-mode')
+      this.darkMode = false
+      this.$emit('light')
+    },
+    modeToggle() {
+      if (this.darkMode || document.querySelector('body').classList.contains('dark-mode')) {
+        this.light()
+      } else {
+        this.dark()
+      }
+    },
+    // pageClicked() {
+    //   let selectPage = document.querySelector('.pageType').innerText;
+    //   this.currentPage = selectPage
+    //   console.log(this.currentPage);
+    // }
+    pageClicked(event) {
+    let selectPageElement = event.currentTarget.querySelector('.pageType');
+    
+    if (selectPageElement) {
+      this.currentPage = selectPageElement.innerText;
+      localStorage.setItem('currentPage', this.currentPage);
+      console.log(this.currentPage);
+    } else {
+      console.error("Element with class 'pageType' not found");
     }
+  },
+
+  },
+  computed: {
+    darkDark() {
+      return this.darkMode && 'darkmode-toggled'
+    }
+  },
+  mounted(){
+    const storedPage = localStorage.getItem('currentPage');
+    if (storedPage) {
+    this.currentPage = storedPage;
+  }
+  }
 }
 
 
 </script>
 
 <template>
-<div class="bg"></div>  
-<div class="app m-5">
-  <!-- <button @click="modeToggle">Toggle Dark Mode</button> -->
-  <div class="d-flex justify-content-end mx-3">
-        <div class="mode-toggle" @click="modeToggle" :class="darkDark">
-            <div class="toggle">
-                <div id="dark-mode" type="checkbox"></div>
-            </div>
+  <div class="bg"></div>
+  <div class="app m-5">
+    <!-- <button @click="modeToggle">Toggle Dark Mode</button> -->
+    <div class="d-flex justify-content-end mx-3">
+      <div class="mode-toggle" @click="modeToggle" :class="darkDark">
+        <div class="toggle">
+          <div id="dark-mode" type="checkbox"></div>
         </div>
+      </div>
     </div>
 
     <div class="title">
@@ -51,15 +75,18 @@ export default {
       <span>Full Stack Junior Web Developer & Not a Proper Designer</span>
     </div>
     <div class="nav py-5">
-      <ul>
+      <ul class="p-0">
         <li>
-          <router-link style="text-decoration: none; color: inherit;" to="/">Homepage</router-link>
+          <router-link @click="pageClicked" style="text-decoration: none; color: inherit;" to="/"><i class="fa-solid fa-circle"
+              :class="currentPage === 'Homepage' ? '' : 'd-none'"></i><span class="pageType">Homepage</span></router-link>
         </li>
         <li>
-          <router-link style="text-decoration: none; color: inherit;" to="/projects">Projects</router-link>
+          <router-link @click="pageClicked" style="text-decoration: none; color: inherit;" to="/projects"><i class="fa-solid fa-circle"
+              :class="currentPage === 'Projects' ? '' : 'd-none'"></i><span class="pageType">Projects</span></router-link>
         </li>
         <li>
-          <router-link style="text-decoration: none; color: inherit;" to="/info">Info</router-link>
+          <router-link @click="pageClicked" style="text-decoration: none; color: inherit;" to="/info"><i class="fa-solid fa-circle"
+              :class="currentPage === 'Info' ? '' : 'd-none'"></i><span class="pageType">Info</span></router-link>
         </li>
       </ul>
     </div>
@@ -71,12 +98,13 @@ export default {
 @use "./styles/general.scss" as *;
 
 
-.title{
-  h1{
+.title {
+  h1 {
     font-size: 2rem;
     font-weight: 100;
   }
 }
+
 .app {
   padding: 3rem 0 0 3rem;
   width: calc(100% - 6rem);
@@ -85,11 +113,18 @@ export default {
   border: rgb(81, 81, 81) 1px solid;
   background-color: transparent
 }
-  li{
-    list-style: none;
-    padding-bottom: 1rem;
-    &:hover{
-      color: rgb(195, 172, 0);
-    }
+
+li {
+  list-style: none;
+  padding-bottom: 1rem;
+
+  &:hover {
+    color: rgb(195, 172, 0);
+  }
 }
-</style>
+
+.fa-circle {
+  font-size: 0.5rem;
+  vertical-align: middle;
+  padding-right: 0.5rem;
+}</style>
