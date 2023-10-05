@@ -145,7 +145,7 @@ li {
  }
  @media screen and (max-width: 600px) {
   .router-container{
-     height: calc(100% - 10rem);
+     height: calc(100% - 11rem);
  }
  }
 </style>
