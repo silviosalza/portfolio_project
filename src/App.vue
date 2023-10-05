@@ -25,28 +25,27 @@ export default {
       }
     },
     pageClicked(event) {
-    let selectPageElement = event.currentTarget.querySelector('.pageType');
-    
-    if (selectPageElement) {
-      this.currentPage = selectPageElement.innerText;
-      localStorage.setItem('currentPage', this.currentPage);
-      console.log(this.currentPage);
-    } else {
-      console.error("Element with class 'pageType' not found");
-    }
-  },
+      let selectPageElement = event.currentTarget.querySelector('.pageType');
 
+      if (selectPageElement) {
+        this.currentPage = selectPageElement.innerText;
+        localStorage.setItem('currentPage', this.currentPage);
+        console.log(this.currentPage);
+      } else {
+        console.error("Element with class 'pageType' not found");
+      }
+    },
   },
   computed: {
     darkDark() {
       return this.darkMode && 'darkmode-toggled'
     }
   },
-  mounted(){
+  mounted() {
     const storedPage = localStorage.getItem('currentPage');
     if (storedPage) {
-    this.currentPage = storedPage;
-  }
+      this.currentPage = storedPage;
+    }
   }
 }
 
@@ -55,7 +54,7 @@ export default {
 
 <template>
   <div class="bg"></div>
-  <div class="app m-5">
+  <div class="app-container">
     <!-- <button @click="modeToggle">Toggle Dark Mode</button> -->
     <div class="d-flex justify-content-end mx-3">
       <div class="mode-toggle" @click="modeToggle" :class="darkDark">
@@ -69,34 +68,39 @@ export default {
       <h1>Silvio Filippo Salza</h1>
       <span>Full Stack Junior Web Developer & Not a Proper Designer</span>
     </div>
-    <div class="nav py-5">
+    <div class="nav">
       <ul class="p-0">
         <li>
-          <router-link @click="pageClicked" style="text-decoration: none; color: inherit;" to="/"><i class="fa-solid fa-circle"
-              :class="currentPage === 'Homepage' ? '' : 'd-none'"></i><span class="pageType">Homepage</span></router-link>
+          <router-link @click="pageClicked" style="text-decoration: none; color: inherit;" to="/"><i
+              class="fa-solid fa-circle" :class="currentPage === 'Homepage' ? '' : 'd-none'"></i><span
+              class="pageType">Homepage</span></router-link>
         </li>
         <li>
-          <router-link @click="pageClicked" style="text-decoration: none; color: inherit;" to="/projects"><i class="fa-solid fa-circle"
-              :class="currentPage === 'Projects' ? '' : 'd-none'"></i><span class="pageType">Projects</span></router-link>
+          <router-link @click="pageClicked" style="text-decoration: none; color: inherit;" to="/projects"><i
+              class="fa-solid fa-circle" :class="currentPage === 'Projects' ? '' : 'd-none'"></i><span
+              class="pageType">Projects</span></router-link>
         </li>
         <li>
-          <router-link @click="pageClicked" style="text-decoration: none; color: inherit;" to="/info"><i class="fa-solid fa-circle"
-              :class="currentPage === 'Info' ? '' : 'd-none'"></i><span class="pageType">Info</span></router-link>
+          <router-link @click="pageClicked" style="text-decoration: none; color: inherit;" to="/info"><i
+              class="fa-solid fa-circle" :class="currentPage === 'Info' ? '' : 'd-none'"></i><span
+              class="pageType">Info</span></router-link>
         </li>
       </ul>
     </div>
-    <router-view v-slot="{ Component, route }">
-  <transition :name="route.meta.transition || 'fade'" mode="out-in">
-    <component :is="Component"/>
-  </transition>
-</router-view>
+    <div class="router-container">
+      <router-view :key="$route.fullPath">
+      </router-view>
+
+    </div>
   </div>
 </template>
 
 <style lang="scss">
 @use "./styles/general.scss" as *;
 
-
+.nav{
+  padding: 4rem 0 0.5rem 0;
+}
 .title {
   h1 {
     font-size: 2rem;
@@ -104,13 +108,14 @@ export default {
   }
 }
 
-.app {
+.app-container {
+  margin: 3rem;
   padding: 3rem 0 0 3rem;
+  overflow: hidden;
   width: calc(100% - 6rem);
   height: calc(100vh - 6rem);
-  overflow: hidden;
   border: rgb(81, 81, 81) 1px solid;
-  background-color: transparent
+  background-color: transparent;
 }
 
 li {
@@ -126,4 +131,9 @@ li {
   font-size: 0.5rem;
   vertical-align: middle;
   padding-right: 0.5rem;
-}</style>
+}
+.router-container{
+     height: calc(100% - 18rem);
+ }
+</style>
+

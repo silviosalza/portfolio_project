@@ -7,10 +7,14 @@ body{
     font-family: $main_font;
     font-weight: 900;
     color: rgb(0, 0, 0);
-    background-color: #dcdcdc;
+    background-color: rgb(220, 220, 220);
     transition: background-color 2s ease, color 2s ease;
     margin: 0;
     overflow-x: hidden;
+    a{
+      text-decoration: none;
+      color: inherit;
+    }
     
 
   &.dark-mode{
@@ -22,7 +26,7 @@ body{
 // BACKGROUND ANIMATION
 .bg {
   position: fixed;
-  z-index: -1;
+  z-index: -2;
   top: -50%;
   left: -50%;
   right: -50%;
@@ -130,24 +134,3 @@ body.dark-mode {
 }
 
 //ROUTER VIEW TRANSITION EFFECT
-
-/* Stili di transizione per 'fade' */
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter, .fade-leave-to {
-  opacity: 0;
-}
-
-/* Stili di transizione per 'slide-left' */
-.slide-left-enter-active, .slide-left-leave-active {
-  transition: transform 0.9s;
-}
-.slide-left-enter, .slide-left-leave-to {
-  transform: translateX(0); /* Entrata da sinistra */
-}
-
-/* Aggiungi uno stile specifico per l'uscita da destra */
-.slide-left-leave-active {
-  transform: translateX(100%); /* Uscita verso destra */
-}

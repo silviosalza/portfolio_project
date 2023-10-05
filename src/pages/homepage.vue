@@ -13,7 +13,7 @@
                 I am a developer with a significant range of
                 job and intercultural experiences, passionate
                 about web design, geek culture, technology, and
-                teamwork. I dream Japan.
+                teamwork.
             </p>
         </div>
 
