@@ -117,6 +117,14 @@ export default {
   border: rgb(81, 81, 81) 1px solid;
   background-color: transparent;
 }
+@media screen and (max-width: 600px) {
+
+  .app-container {
+    margin: .5rem;
+  padding: .5rem 0 0 .5rem;
+  border: 0;
+  }
+}
 
 li {
   list-style: none;
