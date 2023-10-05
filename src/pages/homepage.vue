@@ -23,9 +23,20 @@
 <style scoped lang="scss">
 .bio_container {
     height: 60%;
+    overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
 }
 .bio-img{
     border-radius: 50%;
     width: 100px;
+}
+.bio_container::-webkit-scrollbar {
+  width: 8px;
+  /* Larghezza della barra di scorrimento in WebKit (Chrome, Safari, etc.) */
+}
+.bio_container::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  /* Colore del cursore della barra di scorrimento */
 }
 </style>
