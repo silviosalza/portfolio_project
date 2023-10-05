@@ -27,6 +27,14 @@
   scrollbar-width: thin;
   scrollbar-color: transparent transparent;
 }
+@media screen and (max-width: 600px) {
+    .bio_container {
+    height: 80%;
+    overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+}
 .bio-img{
     border-radius: 50%;
     width: 100px;
