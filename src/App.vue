@@ -66,7 +66,7 @@ export default {
 
     <div class="title">
       <h1>Silvio Filippo Salza</h1>
-      <span>Full Stack Junior Web Developer & Not a Proper Designer</span>
+      <span>Junior Full Stack Web Developer & Not a Proper Designer</span>
     </div>
     <div class="nav">
       <ul class=" p-0">
