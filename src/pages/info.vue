@@ -13,6 +13,9 @@
       <li>
         <a href="mailto:silviofilipposalza@gmail.com">Email</a>
       </li>
+      <li>
+        <a href="../assets/CV Silvio F. Salza - Copia.pdf" download>Download CV</a>
+      </li>
     </ul>
   </div>
 </template>
