@@ -69,7 +69,7 @@ export default {
       <span>Full Stack Junior Web Developer & Not a Proper Designer</span>
     </div>
     <div class="nav">
-      <ul class="p-0">
+      <ul class=" p-0">
         <li>
           <router-link @click="pageClicked" style="text-decoration: none; color: inherit;" to="/"><i
               class="fa-solid fa-circle" :class="currentPage === 'Homepage' ? '' : 'd-none'"></i><span
@@ -129,11 +129,10 @@ export default {
 li {
   list-style: none;
   padding-bottom: 1rem;
-
-  &:hover {
+}
+.nav li:hover{
     color: rgb(195, 172, 0);
   }
-}
 
 .fa-circle {
   font-size: 0.5rem;

@@ -1,4 +1,12 @@
 <script>
+export default {
+  data() {
+    return {
+      pdfPath: "src/assets/CVSilvioSalza.pdf",
+      pdfPathEng: "src/assets/CV-ENG-SilvioSalza.pdf"
+    };
+  }
+};
 </script>
 
 <template>
@@ -14,7 +22,7 @@
         <a href="mailto:silviofilipposalza@gmail.com">Email</a>
       </li>
       <li>
-        <a href="../assets/CV Silvio F. Salza - Copia.pdf" download>Download CV</a>
+        Download CV<a :href="pdfPathEng" download="CV-ENG-SilvioSalza.pdf"> ENG </a>&#9679;<a :href="pdfPath" download="CVSilvioSalza.pdf"> ITA</a>
       </li>
     </ul>
   </div>
