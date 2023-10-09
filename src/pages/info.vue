@@ -2,8 +2,7 @@
 export default {
   data() {
     return {
-      pdfPath: "src/assets/CVSilvioSalza.pdf",
-      pdfPathEng: "src/assets/CV-ENG-SilvioSalza.pdf"
+      
     };
   }
 };
@@ -22,7 +21,7 @@ export default {
         <a href="mailto:silviofilipposalza@gmail.com">Email</a>
       </li>
       <li>
-        Download CV<a :href="pdfPathEng" download="CV-ENG-SilvioSalza.pdf"> ENG </a>&#9679;<a :href="pdfPath" download="CVSilvioSalza.pdf"> ITA</a>
+        Download CV<a href="https://www.mediafire.com/file/ks2ikuzkif8y5rz/CV-ENG-SilvioSalza.pdf/file" target="_blank"> ENG </a>&#9679;<a href="https://www.mediafire.com/file/69lsmgbk1oj08p5/CVSilvioSalza.pdf/file" target="_blank"> ITA</a>
       </li>
     </ul>
   </div>
